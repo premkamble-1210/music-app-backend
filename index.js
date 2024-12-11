@@ -5,6 +5,7 @@ const app = express();
 
 app.get('/get-url', async (req, res) => {
   const videoId = req.query.videoId;
+  console.log(videoId);
   const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
   
   try {
