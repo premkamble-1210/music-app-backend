@@ -1,8 +1,7 @@
-# Use a more recent Node.js version
-FROM node:18-alpine
+FROM node:18
 
-# Set working directory
-WORKDIR /usr/src/app
+# Install Python and dependencies
+RUN apt-get update && apt-get install -y python3 python3-pip
 
 # Copy package files and install dependencies
 COPY package*.json ./
@@ -11,7 +10,8 @@ RUN npm install
 # Copy application code
 COPY . .
 
-# Expose the application port
+# Expose necessary ports and start the app (if needed)
+
 EXPOSE 3000
 
 # Start the application
